@@ -4,11 +4,13 @@
 
 import pytest
 from selenium.webdriver.common.by import By
+import time
 
 
 link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
 
 
 def test_guest_should_see_add_to_basket(browser):
-    browser.get(link)    
-    assert browser.find_element(By.CSS_SELECTOR, "button.btn-add-to-basket"), "Кнопка добавления в корзину не найдена!"
+    browser.get(link)
+    time.sleep(3)    
+    assert len(browser.find_elements_by_class_name("button.btn-add-to-basket-ttt")) != 0, "Кнопка добавления в корзину не найдена!"
